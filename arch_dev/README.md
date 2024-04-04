@@ -2,12 +2,6 @@
 
 ## Setup 
 
-0. Private dot files
-
-```
-ln -s /home/nacho/.dotfiles-private/spell /home/nacho/.config/nvim/spell
-```
-
 1. Before installing lazy nvim, make sure to setup git 
     - Make sure to 
     - `rm ~/.local/share/nvim/lazy`
@@ -18,7 +12,8 @@ can't since git is not properly setup in a clean install.
 
 2. Make fish open on login
 
-- Note csch was not working! It was adding the shell to the root user if I look at `/etc/passwd`
+- Note csch was not working to add the default shell, even though it should be supported! 
+It was adding the shell to the root user if I look at `/etc/passwd`
 
 Add the following to .bashrc
 
