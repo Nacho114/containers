@@ -10,7 +10,9 @@
 The issue is that lazy tries to pull the lazy.nvim repo, but
 can't since git is not properly setup in a clean install.
 
-2. Make fish open on login
+2. Setup pgp key, and update the key in the `.gitconfig`
+
+3. Make fish open on login
 
 - Note csch was not working to add the default shell, even though it should be supported! 
 It was adding the shell to the root user if I look at `/etc/passwd`
