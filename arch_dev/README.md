@@ -1,5 +1,7 @@
 # Notes
 
+Inspired from [boxkit](https://github.com/ublue-os/boxkit/blob/main/README.md)
+
 ## Setup 
 
 1. Before installing lazy nvim, make sure to setup git 
