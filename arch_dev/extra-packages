@@ -1,7 +1,5 @@
 fish
 make
-clipboard
-wl-clipboard
 trash-cli
 bat
 exa
@@ -12,6 +10,12 @@ zoxide
 bottom
 neofetch
 starship
-delta
+git-delta
 neovim
 chezmoi
+tldr
+tmux
+npm
+pnpm
+luarocks
+xclip

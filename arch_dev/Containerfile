@@ -1,4 +1,4 @@
-FROM quay.io/toolbx-images/arch-toolbox:latest
+FROM quay.io/toolbx-images/archlinux-toolbox:latest
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
@@ -6,14 +6,15 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="ignaciosaleman@gmail.com"
 
 COPY extra-packages /
-RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm $(grep -v '^#' /extra-packages)
+
+# Update the system
+RUN pacman -Syu --noconfirm
+
+# Install packages, ensuring the extra-packages file is correctly formatted and contains valid packages
+RUN pacman -S --noconfirm $(grep -v '^#' /extra-packages)
+
 RUN rm /extra-packages
 
-RUN ln -fs /bin/sh /usr/bin/sh && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \ 
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
-
+# If this fails can run manually after (since only need to do once)
+RUN ln -fs /usr/local/bin/distrobox-host-exec /usr/bin/podman &&\
+    ln -fs /usr/local/bin/distrobox-host-exec /usr/bin/flatpak
