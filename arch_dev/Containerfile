@@ -18,3 +18,6 @@ RUN rm /extra-packages
 # If this fails can run manually after (since only need to do once)
 RUN ln -fs /usr/local/bin/distrobox-host-exec /usr/bin/podman &&\
     ln -fs /usr/local/bin/distrobox-host-exec /usr/bin/flatpak
+
+# Change default shell for user
+RUN chsh -s /usr/bin/fish $USER
